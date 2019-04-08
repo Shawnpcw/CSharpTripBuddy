@@ -1,0 +1,56 @@
+@model Trip
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>Christen's Poop</title>
+  </head>
+  <body>
+    <div class="container">
+        <a href="/Trips">Back to Trips</a>
+        <hr class="mb-5">
+        <div class="row">
+            <div class="registeration col-lg-12 border-right">
+                <h3>Add a Trip!</h3>
+                @if(@ViewBag.error!="false"){
+                    <h4 class="text-danger">@ViewBag.error</h4>
+                }
+                <form asp-action="makeTrip" asp-controller="Trip" method="POST"> 
+                    <label asp-for="destination">Destination:</label>
+                    <span asp-validation-for="destination"></span>
+                    <input class="form-control" type="text" asp-for="destination">
+                    
+                    <label asp-for="description">Description:</label> 
+                    <span asp-validation-for="description"></span>
+                    <input class="form-control" type="text" asp-for="description">
+                    
+                    <label asp-for="from">Travel Date From:</label>
+                    <span asp-validation-for="from"></span>
+                    <input class="form-control" type="date" asp-for="from">
+    
+                    <label asp-for="to">Travel Date From:</label>
+                    <span asp-validation-for="to"></span>
+                    <input class="form-control" type="date" asp-for="to">
+                    <div class="text-right">
+                        <button class="btn btn-primary mt-3" type="submit" name="registersubmit">Add!</button>
+                    </div>
+                </form>
+            </div>
+            
+        </div>
+
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  </body>
+</html>
